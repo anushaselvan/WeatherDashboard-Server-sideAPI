@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link
+    rel="stylesheet"
+    href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+  />
      <link rel= "stylesheet" href="style.css">
     <title>Weather Dashboard</title>
 </head>
@@ -14,16 +18,18 @@
     </header>
     <div class = "container-sm mx-0">
         <div class = "row justify-content-left">
-            <form id="search-city" class ="col-sm-3">
+            <form id= "search-city" class = "col-sm-3">
                 <label class="form-control-m h4 my-3">Search for a City:</label>
-                <input type = "text" class="form-control-m " autocomplete="off"/>
-                <button type ="submit" class = "form-control-m my-3 px-5 btn btn-info">Search</button>
+                <input type = "text" class = "form-control-lg w-75 " id = "city-name" />
+                <button type ="submit" value = "Submit" class = " my-3 w-75 btn btn-info">Search</button>
+                <div class = "borderline w-75"></div>
+                <div id = "city-list"></div>
             </form>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="script.js"></script>
-</body>
 </html>

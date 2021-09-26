@@ -1,0 +1,7 @@
+.borderline{
+    border-width: 2px;
+    border-right-width: 5px;
+    border-color: grey;
+    border-style: ridge;
+    background-color: gray;
+}
