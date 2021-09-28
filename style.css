@@ -1,7 +1,18 @@
+*{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 .borderline{
     border-width: 2px;
     border-right-width: 5px;
     border-color: grey;
     border-style: ridge;
     background-color: gray;
+}
+.brder{
+    box-sizing: border-box;
+    border-width:3px;
+    border-style: solid;
+    border-color: gray;
+    margin-top:2rem;
 }
