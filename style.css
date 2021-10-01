@@ -14,5 +14,17 @@
     border-width:3px;
     border-style: solid;
     border-color: gray;
-    margin-top:2rem;
+    margin-top:20px;
+}
+.favourable{
+    width: 15%;
+    background-color: greenyellow;
+}
+.moderate{
+    width: 15%;
+    background-color: yellow;
+}
+.high{
+    width: 15%;
+    background-color: red;
 }
