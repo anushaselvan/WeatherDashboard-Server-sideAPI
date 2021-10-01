@@ -17,14 +17,18 @@
     margin-top:20px;
 }
 .favourable{
-    width: 15%;
+    width: 12%;
     background-color: greenyellow;
 }
 .moderate{
-    width: 15%;
+    width: 12%;
     background-color: yellow;
 }
 .high{
-    width: 15%;
+    width: 12%;
     background-color: red;
+}
+.forecast{
+    display:inline;
+    margin:5px;
 }
