@@ -16,21 +16,23 @@
     border-color: gray;
     margin-top:20px;
 }
+
 .favourable{
-    width: 12%;
+    width: 15%;
     background-color: green;
 }
 .moderate{
-    width: 12%;
+    width: 15%;
     background-color: yellow;
 }
 .high{
-    width: 12%;
+    width: 15%;
     background-color: red;
 }
 .forecast{
     display:inline-block;
     margin:5px;
+   max-width:18%;
     
 }
 .dailyForecast{

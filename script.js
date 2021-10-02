@@ -53,10 +53,9 @@
    .then(function(data){
        console.log(data);
     weatherEl.addClass("brder");
-    var iconUrl = "https://openweathermap.org/img/wn/03n@2x.png";
+    var iconUrl = "https://openweathermap.org/img/wn/"+data.weather[0].icon+"@2x.png";
     var icon = $("<img src="+iconUrl+">");
-    console.log(icon);
-    var cityWeather = $("#weather").addClass("h2 font-weight-600").text(name+"    "+ icon);  
+    var cityWeather = $("#weather").addClass("h2 font-weight-600").text(name+"    ");  
     var date = moment().format('l');
     var currentDate = $("<p>").addClass("h4").text('('+ date +')'); 
     var tempEl = $("<p>").addClass("h6").text('Temp:'+ " "+ data.main.temp+"°C");
@@ -83,28 +82,30 @@ fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+data.coord.lat+"&lo
     {
         uvEl.addClass("high"); 
     }
-   weatherEl.append( cityWeather, currentDate, tempEl, windEl, humidityEl,uvEl);
+   weatherEl.append( cityWeather,icon, currentDate, tempEl, windEl, humidityEl,uvEl);
    for(var i=0; i<5; i++){
        var dateFetch = moment.unix(data.daily[i+1].dt).format('l');
        var datef = $("<p>").addClass("h5").text( dateFetch );
-      // var iconf = "https://openweathermap.org/img/wn/03n@2x.png";
+       var icn =  "https://openweathermap.org/img/wn/"+ data.daily[i].weather[0].icon +"@2x.png";
+       var iconf = $("<img src="+icn+">");
        var tempf =  $("<p>").addClass("h6").text('Temp:'+ " "+ data.daily[i].temp.day+"°C");
        var windf = $("<p>").addClass("h6").text("Wind:"+" "+ data.daily[i].wind_speed+"km/h");
        var humidf = $("<p>").addClass("h6").text("Humidity:"+" "+ data.daily[i].humidity+"%");
        if (i === 0){
-        day1El.append(datef, tempf, windf, humidf);
+
+        day1El.append(datef,iconf, tempf, windf, humidf);
        }
        if(i === 1){
-        day2El.append(datef, tempf, windf, humidf);
+        day2El.append(datef,iconf, tempf, windf, humidf);
        }
        if(i === 2){
-        day3El.append(datef,  tempf, windf, humidf);
+        day3El.append(datef,iconf,  tempf, windf, humidf);
        }
        if(i === 3){
-        day4El.append(datef,  tempf, windf, humidf);
+        day4El.append(datef,iconf,  tempf, windf, humidf);
        }
        if(i === 4){
-        day5El.append(datef,  tempf, windf, humidf);
+        day5El.append(datef,iconf,  tempf, windf, humidf);
        }
 
    }
@@ -129,9 +130,8 @@ fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+data.coord.lat+"&lo
         cityNameEl.val("");
     }
  function loadCityList(){
-     var sCity = JSON.parse(localStorage.getItem("cityName"));
     if(sCity !== null){
-        sCity = JSON.parse(localStorage.getItem("cityName"));
+       var sCity = JSON.parse(localStorage.getItem("cityName"));
         for (var i=0; i<sCity.length; i++){
             printNames(sCity[i]);
         }
