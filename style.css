@@ -18,7 +18,7 @@
 }
 .favourable{
     width: 12%;
-    background-color: greenyellow;
+    background-color: green;
 }
 .moderate{
     width: 12%;
@@ -29,6 +29,12 @@
     background-color: red;
 }
 .forecast{
-    display:inline;
+    display:inline-block;
     margin:5px;
+    
+}
+.dailyForecast{
+    justify-content: right;
+    margin-left:25%;
+    
 }

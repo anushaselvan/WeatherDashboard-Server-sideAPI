@@ -5,23 +5,51 @@
  var day3El = $("#day3");
  var day4El = $("#day4");
  var day5El = $("#day5");
-
+ var searchCity = [];
 
  var cityNameEl = $("#city-name");
  var cityListEl = $("#city-list");
+ cityListEl = [];
  var responseEl = $("<p>");
 
  function printNames(name){
-     var listEl = $('<li>').addClass('my-3 w-75 btn btn-info').text(name);
-    cityListEl.append(listEl);
-    formEl.append(cityListEl);
- }
+        var listEl = $('<li>').addClass('my-3 w-75 btn btn-info').text(name);
+    for (i=0; i<cityListEl.length; i++){
+        if(cityListEl[i]=== listEl){
+            currentWeather(name);
+        }
+    }
+        formEl.append(cityListEl, listEl);
+    }
+/*
+    searchCity = JSON.parse(localStorage.getItem("cityName"));
+    console.log(searchCity);
+    if(searchCity == null){
+        searchCity = [];
+        searchCity.push(name);
+        localStorage.setItem("cityName", JSON.stringify (searchCity));
+        printNames(name);
+    }
+    else {
+        searchExistingList(name);
+    }*/
+
  function currentWeather(name){
+  weatherEl.text("  ");
+  day1El.text("  ");
+  day2El.text("  ");
+  day3El.text("  ");
+  day4El.text("  ");
+  day5El.text("  ");
+
    var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q="+name+"&appid=8eeda8c33024abb85ba58c60e0b669ac&units=metric";
    fetch (requestUrl)
        .then(function(response){
-           return response.json();
+        //if(response.status==200){
+        
+           return response.json ();
    })
+
    .then(function(data){
        console.log(data);
     weatherEl.addClass("brder");
@@ -58,29 +86,29 @@ fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+data.coord.lat+"&lo
    weatherEl.append( cityWeather, currentDate, tempEl, windEl, humidityEl,uvEl);
    for(var i=0; i<5; i++){
        var dateFetch = moment.unix(data.daily[i+1].dt).format('l');
-       console.log(dateFetch);
-       var datef = $("<p>").addClass("h4").text( dateFetch );
-       var iconf = "https://openweathermap.org/img/wn/03n@2x.png";
+       var datef = $("<p>").addClass("h5").text( dateFetch );
+      // var iconf = "https://openweathermap.org/img/wn/03n@2x.png";
        var tempf =  $("<p>").addClass("h6").text('Temp:'+ " "+ data.daily[i].temp.day+"°C");
        var windf = $("<p>").addClass("h6").text("Wind:"+" "+ data.daily[i].wind_speed+"km/h");
        var humidf = $("<p>").addClass("h6").text("Humidity:"+" "+ data.daily[i].humidity+"%");
        if (i === 0){
-        day1El.append(datef, iconf, tempf, windf, humidf);
+        day1El.append(datef, tempf, windf, humidf);
        }
        if(i === 1){
-        day2El.append(datef, iconf, tempf, windf, humidf);
+        day2El.append(datef, tempf, windf, humidf);
        }
        if(i === 2){
-        day3El.append(datef, iconf, tempf, windf, humidf);
+        day3El.append(datef,  tempf, windf, humidf);
        }
        if(i === 3){
-        day4El.append(datef, iconf, tempf, windf, humidf);
+        day4El.append(datef,  tempf, windf, humidf);
        }
        if(i === 4){
-        day5El.append(datef, iconf, tempf, windf, humidf);
+        day5El.append(datef,  tempf, windf, humidf);
        }
 
    }
+   
 
   });  
  });
@@ -100,9 +128,21 @@ fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+data.coord.lat+"&lo
         currentWeather(cityName);
         cityNameEl.val("");
     }
- 
-    formEl.on('submit', handleFormSubmit);
+ function loadCityList(){
+     var sCity = JSON.parse(localStorage.getItem("cityName"));
+    if(sCity !== null){
+        sCity = JSON.parse(localStorage.getItem("cityName"));
+        for (var i=0; i<sCity.length; i++){
+            printNames(sCity[i]);
+        }
+        city = sCity[i-1];
+        currentWeather(city);
 
+    }
+    }
+    formEl.on('submit', handleFormSubmit);
+    $(window).on('load', loadCityList);
+    
  
  //Autocomplete widget
  $(function () {
@@ -118,7 +158,11 @@ fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+data.coord.lat+"&lo
          'Cape Town',
          'Paris',
          'Prague',
-         'Queenstown'
+         'Queenstown',
+         'Rome',
+         'Moscow',
+         'Chennai',
+        'Delhi'
      ];
      $('#city-name').autocomplete({
          source:cityNames,
