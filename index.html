@@ -18,19 +18,18 @@
     <header class = "p-5 text-white bg-primary text-center">
         <h1>Weather Dashboard</h1>
     </header>
-    <div class = "container-sm mx-0">
+    <div class = "container-lg mx-0">
         <div class = "row justify-content-left">
             <form id= "search-city" class = "col-sm-3">
                 <label class="form-control-m h4 my-3">Search for a City:</label>
                 <input type = "text" class = "form-control-lg w-75 " id = "city-name" />
                 <button type ="submit" value = "Submit" class = " my-3 w-75 btn btn-info">Search</button>
                 <div class = "borderline w-75"></div>
-                <div id = "city-list"></div>
+                <div id = "city-list" ></div>
             </form>
-
-            <div id = "weather" class=" col-lg-9 justify-content-right"></div>
-           <div class=" col-lg-9 dailyForecast">
-            <h3 class="display-block hide">5-Day Forecast</h3>
+            <div id = "weather" class="col-lg-9 justify-content-right"></div>
+            <div class=" col-lg-9 dailyForecast">
+            <h3 class="display-block">5-Day Forecast</h3>
             <div id = "day1" class="col-lg-2 bg-primary forecast"></div>
             <div id = "day2" class="col-lg-2 bg-primary forecast"></div>
             <div id = "day3" class="col-lg-2 bg-primary forecast"></div>
@@ -38,8 +37,8 @@
             <div id = "day5" class="col-lg-2 bg-primary forecast"></div>
            </div>
     </div>
-</div>
 
+    </div>
 </body>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

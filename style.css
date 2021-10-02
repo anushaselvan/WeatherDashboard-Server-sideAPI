@@ -12,6 +12,7 @@
 .brder{
     box-sizing: border-box;
     border-width:3px;
+    height: 30%;
     border-style: solid;
     border-color: gray;
     margin-top:20px;
