@@ -5,6 +5,7 @@
  var day3El = $("#day3");
  var day4El = $("#day4");
  var day5El = $("#day5");
+ var fiveDayEl = $("#fiveDay");
  var searchCity = [];
  var sCity = [];
  var city = "";
@@ -48,6 +49,7 @@ function searchExistingList(name){
     }
     
 function currentWeather(name){
+   fiveDayEl.addClass("visible");
   weatherEl.text("  ");
   day1El.text("  ");
   day2El.text("  ");

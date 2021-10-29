@@ -17,7 +17,12 @@
     border-color: gray;
     margin-top:20px;
 }
-
+.hide{
+    visibility: hidden;
+}
+.visible{
+    visibility: visible;
+}
 .favourable{
     width: 15%;
     background-color: green;

@@ -20,6 +20,8 @@ Data fetched from API:
 
  Overview of the application:
 
+![Weather](https://user-images.githubusercontent.com/84444052/135723701-41756dbc-df8f-4290-b868-6f43bc3969ea.PNG)
 
+Deployed link to the application: https://anushaselvan.github.io/WeatherDashboard-Server-sideAPI/
 
  Author: Anusha Selvan
